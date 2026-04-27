@@ -1,0 +1,40 @@
+# 💻 Sistema Especialista: Diagnóstico de Computadores
+
+Um sistema especialista desenvolvido em Python para auxiliar no diagnóstico de falhas comuns em hardware e software de computadores (desktops e notebooks). O sistema utiliza o método de **Encadeamento para Frente** (*Forward Chaining*) e uma **Árvore de Decisão Dinâmica** para guiar o usuário de forma inteligente até a raiz do problema.
+
+## 🎯 Objetivo do Projeto
+O objetivo deste projeto é aplicar conceitos de Inteligência Artificial Simbólica para resolver problemas dentro do domínio de manutenção de computadores. O sistema atua como um técnico virtual, fazendo perguntas progressivas e filtrando as possibilidades até chegar a uma ou mais conclusões precisas.
+
+## ✨ Principais Funcionalidades
+* **Inferência Baseada em Regras:** Utiliza um motor de inferência customizado operando com lógica *Forward Chaining*.
+* **Árvore de Decisão Inteligente (Aninhada):** O sistema não faz perguntas desnecessárias. Se o computador não liga, ele não perguntará sobre a lentidão do sistema operacional, economizando o tempo do usuário.
+* **Múltiplos Diagnósticos:** Capaz de identificar falhas simultâneas caso os sintomas abranjam mais de uma regra.
+* **Interface Tolerante a Falhas:** O terminal entende variações de respostas afirmativas (como `s` e `sim`).
+
+## 🏗️ Arquitetura do Sistema
+O código foi estruturado de forma modularizada, aderindo a boas práticas de Programação Orientada a Objetos (POO):
+
+1. **`Rule` (Regra):** Representa o bloco lógico fundamental. Avalia uma função condicional (`lambda`) contendo os sintomas do usuário e retorna um diagnóstico (`conclusion`) se a condição for verdadeira.
+2. **`KnowledgeBase` (Base de Conhecimento):** Atua como o banco de dados do especialista. Armazena todas as regras conhecidas pelo sistema sobre hardware (Energia, POST, SO e Desempenho).
+3. **`InferenceEngine` (Mecanismo de Inferência):** O motor lógico. Recebe os fatos (respostas do usuário) e varre a Base de Conhecimento em busca de todas as regras que podem ser disparadas.
+4. **`UserInterface` (Interface com o Usuário):** Gerencia a interação no terminal. Implementa a lógica das perguntas em camadas para isolar o problema.
+
+## 🧠 Domínio da Base de Conhecimento
+O sistema está treinado para diagnosticar problemas nas seguintes camadas:
+* **Camada de Energia:** Fontes queimadas, problemas de cabo ou curtos na placa-mãe.
+* **Camada de POST/Vídeo:** Falhas de Memória RAM, Processador, Placa de Vídeo ou BIOS corrompida (através da análise de bipes sonoros).
+* **Camada de Sistema/Estabilidade:** Arquivos corrompidos do Windows, Tela Azul da Morte (BSOD) e superaquecimento (Thermal Throttling).
+* **Camada de Desempenho:** Artefatos de vídeo (GPU) e gargalos de disco (HD mecânico em 100%).
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+* Python 3.x instalado na máquina.
+* Nenhuma biblioteca externa (`pip install`) é necessária. O sistema roda de forma nativa.
+
+### Execução
+1. Clone ou baixe este repositório.
+2. Abra o terminal (ou prompt de comando) no diretório do arquivo.
+3. Execute o script principal:
+   ```bash
+   python sistema_especialista.py
